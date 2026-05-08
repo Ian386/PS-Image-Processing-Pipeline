@@ -1,0 +1,33 @@
+# Claude Code configuration (local agent settings — not part of project)
+.claude/
+CLAUDE.md
+
+# Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+
+# Compiled C/MPI binaries and object files
+build/
+
+# Generated benchmark output PNGs (regeneratable via bench/run_all.sh)
+data/reference/*.png
+
+# Full-resolution CUDA outputs (regeneratable via cuda/cuda_pipeline.ipynb on Colab)
+results/cuda_outputs/
+
+# Node.js (only used historically for report generation; not part of the project)
+node_modules/
+package.json
+package-lock.json
+
+# Office temp / lock files
+~$*
+*.tmp
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

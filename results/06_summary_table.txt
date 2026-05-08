@@ -1,0 +1,27 @@
+CAT 2 — summary table
+==============================================================================
+Source rows: 105 CPU + 6 CUDA
+
+Best wall-clock per filter (across all paradigms+configs)
+------------------------------------------------------------------------------
+filter    best paradigm         N   mean (ms)
+blur      cuda                  1      10.528
+sobel     cuda                  1      12.140
+sharp     cuda                  1      10.960
+bc        cuda                  1       9.323
+histeq    cuda                  1       9.475
+
+Best speedup per paradigm vs its own t=1 baseline
+------------------------------------------------------------------------------
+paradigm        filter     speedup    N
+omp_static      sharp        6.69x    8
+omp_dynamic     blur         6.17x    8
+omp_guided      sobel        4.81x    8
+pthread         sharp        5.80x    8
+mpi             sobel        6.28x    8
+
+CUDA depth-move: naive vs tiled blur kernel
+------------------------------------------------------------------------------
+  naive kernel : 1.805 ms
+  tiled kernel : 2.336 ms
+  ratio        : 0.77x  (naive wins (T4 L2 cache absorbs redundant reads))
